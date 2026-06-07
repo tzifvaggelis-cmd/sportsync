@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SportSync Pro</string>
+    <string name="title_activity_main">SportSync Pro</string>
+    <string name="package_name">com.sportsync.pro</string>
+    <string name="custom_url_scheme">com.sportsync.pro</string>
+</resources>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SportSync Pro - Live Scores & Analytics</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0e14">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="offline-banner">Offline Mode - Using cached data</div>
+
+<div id="auth-screen">
+  <div class="auth-card">
+    <h1>SportSync Pro</h1>
+    <p>Live scores from all sports. Real-time notifications. Deep analytics. Dark mode for late-night games.</p>
+    <input id="email" type="email" placeholder="Email" value="fan@sportsync.app">
+    <input id="password" type="password" placeholder="Password" value="demo123">
+    <button id="login-btn">Login Securely</button>
+    <button id="signup-btn" style="display:none">Create Account</button>
+    <div class="switch" id="switch-auth">No account? Sign up</div>
+    <div style="margin-top:16px;font-size:11px;color:var(--text-muted);text-align:center">Secure authentication • End-to-end encrypted • Cloud backup</div>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <div>SportSync Pro</div>
+        <div class="sync-status" id="sync-status">Synced</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="chip" id="backup">☁ Backup</div>
+      <div class="chip" id="restore">↺ Restore</div>
+      <div class="chip" id="user-email">user</div>
+      <div class="chip" id="logout">Logout</div>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <h3>Your Teams</h3>
+      <div class="team-list" id="fav-teams"></div>
+      <h3 style="margin-top:18px">Quick Stats</h3>
+      <div style="display:grid;gap:8px">
+        <div class="stat-card"><h4>Live Games</h4><div style="font-size:22px;font-weight:700" id="live-count">4</div></div>
+        <div class="stat-card"><h4>Notifications</h4><div style="font-size:12px;color:var(--text-muted)">Push enabled ✓</div></div>
+        <div class="stat-card"><h4>Offline Ready</h4><div style="font-size:12px;color:var(--text-muted)">Cache active ✓</div></div>
+      </div>
+    </aside>
+
+    <section>
+      <div class="tabs">
+        <div class="tab active" data-tab="live">Live Scores</div>
+        <div class="tab" data-tab="favorites">Favorites</div>
+        <div class="tab" data-tab="history">History</div>
+        <div class="tab" data-tab="analytics">Analytics</div>
+      </div>
+      <div class="sports-filter">
+        <div class="sport active" data-sport="All">All Sports</div>
+        <div class="sport" data-sport="Football">⚽ Football</div>
+        <div class="sport" data-sport="Basketball">🏀 Basketball</div>
+        <div class="sport" data-sport="American Football">🏈 NFL</div>
+        <div class="sport" data-sport="Baseball">⚾ MLB</div>
+        <div class="sport" data-sport="Hockey">🏒 NHL</div>
+        <div class="sport" data-sport="Tennis">🎾 Tennis</div>
+      </div>
+      <div class="matches" id="matches"></div>
+    </section>
+
+    <aside class="right-panel">
+      <div class="panel-head">Real-Time Insights</div>
+      <div class="panel-body">
+        <div class="stat-card">
+          <h4>Deep Game Analytics</h4>
+          <div style="font-size:13px;color:var(--text-muted);line-height:1.5">
+            • Possession tracking per team<br>
+            • Shots on target live<br>
+            • Total passes completed<br>
+            • Ball trajectory visualization<br>
+            • Player ratings (statistical)
+          </div>
+        </div>
+        <div class="stat-card" style="margin-top:12px">
+          <h4>Cross-Device Sync</h4>
+          <div style="font-size:13px;color:var(--text-muted)">Your favorites, settings, and match history sync automatically across phone, tablet, and desktop. Encrypted cloud backup every 30s.</div>
+        </div>
+        <div class="stat-card" style="margin-top:12px">
+          <h4>Social Fan Hub</h4>
+          <div style="font-size:13px;color:var(--text-muted)">Join live discussions, share moments, and get notified when friends react. Tap any match → Fan Discussion.</div>
+        </div>
+        <div class="stat-card" style="margin-top:12px">
+          <h4>Offline Support</h4>
+          <div style="font-size:13px;color:var(--text-muted)">Low connectivity? All recent matches cached via Service Worker + IndexedDB. Full history scrollable offline.</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="modal-title">Match Details</h2>
+      <div class="close" id="close-modal">✕</div>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

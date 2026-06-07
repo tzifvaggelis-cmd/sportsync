@@ -1,0 +1,31 @@
+{
+  "name": "sportsync-pro",
+  "version": "1.0.0",
+  "description": "Live scores from all sports with real-time notifications",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "build": "echo 'PWA ready'",
+    "cap:init": "npx cap init SportSync com.sportsync.app --web-dir=.",
+    "cap:add:android": "npx cap add android",
+    "cap:add:ios": "npx cap add ios",
+    "cap:sync": "npx cap sync",
+    "cap:open:android": "npx cap open android",
+    "cap:open:ios": "npx cap open ios"
+  },
+  "keywords": [
+    "sports",
+    "live-scores",
+    "pwa",
+    "football",
+    "nba"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1",
+    "@capacitor/ios": "^6.0.0"
+  }
+}
